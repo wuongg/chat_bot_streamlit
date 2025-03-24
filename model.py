@@ -1,21 +1,15 @@
 import os
 from llama_cpp import Llama
+from huggingface_hub import hf_hub_download
 
-# Ghép file từ các phần nhỏ
-def merge_model_parts(output_file="phi-2.Q6_K.gguf"):
-    part_files = sorted([f for f in os.listdir() if f.startswith("phi-2.Q6_K.gguf.part_")])
-    
-    with open(output_file, "wb") as outfile:
-        for part in part_files:
-            with open(part, "rb") as infile:
-                outfile.write(infile.read())
+# Tên repository chứa mô hình (nếu bạn upload mô hình của riêng bạn thì thay đổi repo_id)
+repo_id = "TheBloke/phi-2-GGUF"  # Repo chứa mô hình phi-2 GGUF
+model_filename = "phi-2.Q6_K.gguf"  # Tên file mô hình
 
-    print(f"Merged {len(part_files)} parts into {output_file}")
+# Tải xuống mô hình
+model_path = hf_hub_download(repo_id=repo_id, filename=model_filename)
 
-# Chạy ghép file nếu mô hình chưa tồn tại
-if not os.path.exists("phi-2.Q6_K.gguf"):
-    merge_model_parts()
-
+print(f"Mô hình đã được tải về: {model_path}")
 # Load mô hình vào Llama
 n_threads = os.cpu_count()
 GPU_LAYERS = 40
