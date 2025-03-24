@@ -1,10 +1,5 @@
 from llama_cpp import Llama
 import os
-import gdown
-
-url = "https://drive.google.com/uc?export=download&id=1D8kAbej21_l4vqFCzHJB461k2tMiRe6b"
-output = "phi-2.Q6_K.gguf"
-gdown.download(url, output, quiet=False)
 n_threads = os.cpu_count()
 GPU_LAYERS = 40
 
