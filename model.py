@@ -1,3 +1,4 @@
+wget --no-check-certificate "https://drive.google.com/file/d/1D8kAbej21_l4vqFCzHJB461k2tMiRe6b/view?usp=sharing" -O phi-2.Q6_K.gguf
 from llama_cpp import Llama
 import os
 n_threads = os.cpu_count()
