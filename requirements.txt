@@ -3,4 +3,4 @@ faiss-cpu==1.10.0
 sentence_transformers==3.4.1
 llama-cpp-python==0.3.8
 streamlit
-gdown
+huggingface_hub
