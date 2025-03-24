@@ -1,5 +1,3 @@
-import torch
-from torchtext.vocab import vocab
 from Faiss import retrieve_text_faiss
 from model import generate_answer_fast
 import streamlit as st
