@@ -7,6 +7,8 @@ WORKDIR /app
 # Copy toàn bộ mã nguồn vào container
 COPY . .
 
+RUN cat model_part_000.part model_part_001.part > model.pth
+
 # Cài đặt các thư viện cần thiết
 RUN pip install --no-cache-dir -r requirements.txt
 
